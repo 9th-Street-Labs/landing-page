@@ -1,31 +1,37 @@
-import Link from "next/link";
 import { site } from "@/lib/site";
+import { Button } from "@/components/ui/Button";
+import { DotGrid } from "@/components/hero/DotGrid";
+import { Ticker } from "@/components/hero/Ticker";
 
 export function Hero() {
   return (
-    <section className="mx-auto flex max-w-6xl flex-col items-center px-6 py-28 text-center sm:py-36">
-      <span className="mb-6 rounded-full border border-black/10 px-4 py-1.5 text-xs font-medium tracking-wide text-foreground/70 dark:border-white/15">
-        Now building
-      </span>
-      <h1 className="max-w-3xl text-balance text-4xl font-bold tracking-tight sm:text-6xl">
-        {site.name}
-      </h1>
-      <p className="mt-6 max-w-xl text-balance text-lg text-foreground/70">
-        {site.description}
-      </p>
-      <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-        <Link
-          href="#features"
-          className="rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
-        >
-          Explore
-        </Link>
-        <Link
-          href="#contact"
-          className="rounded-full border border-black/10 px-6 py-3 text-sm font-medium transition-colors hover:bg-foreground/5 dark:border-white/15"
-        >
-          Contact us
-        </Link>
+    <section className="relative flex min-h-screen flex-col justify-end overflow-hidden">
+      <DotGrid />
+      <div className="pointer-events-none relative z-10 mx-auto flex w-full max-w-6xl flex-1 flex-col items-start justify-center gap-8 px-6 pt-32 pb-20">
+        <p className="font-mono text-sm text-faint">
+          9th street labs presents
+        </p>
+        <h1 className="text-[clamp(4rem,12vw,10rem)] font-black lowercase leading-none tracking-[-0.04em]">
+          {site.product}
+          <span className="animate-caret text-accent">_</span>
+        </h1>
+        <p className="max-w-xl text-lg leading-relaxed text-muted sm:text-xl">
+          {site.tagline}. they code on your desktops — you drive them from the
+          couch. point, type, talk.{" "}
+          <span className="text-foreground">
+            never babysit a terminal again.
+          </span>
+        </p>
+        <div className="pointer-events-auto flex flex-wrap items-center gap-4 pt-2">
+          <Button href="#download">crack the whip — download</Button>
+          <Button href="#remote" variant="ghost">
+            <span className="animate-pulse-dot h-1.5 w-1.5 rounded-full bg-accent" />
+            whip (remote) — coming soon
+          </Button>
+        </div>
+      </div>
+      <div className="relative z-10">
+        <Ticker />
       </div>
     </section>
   );

@@ -1,7 +1,13 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
-import { Features } from "@/components/sections/Features";
+import { Point } from "@/components/sections/Point";
+import { Modes } from "@/components/sections/Modes";
+import { Mesh } from "@/components/sections/Mesh";
+import { HardwareRemote } from "@/components/sections/HardwareRemote";
+import { Measured } from "@/components/sections/Measured";
+import { Specs } from "@/components/sections/Specs";
+import { Download } from "@/components/sections/Download";
 
 export default function Home() {
   return (
@@ -9,7 +15,13 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <Features />
+        <Point />
+        <Modes />
+        <Mesh />
+        <HardwareRemote />
+        <Measured />
+        <Specs />
+        <Download />
       </main>
       <Footer />
     </>

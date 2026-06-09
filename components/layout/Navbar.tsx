@@ -1,19 +1,38 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { site } from "@/lib/site";
+import { Wordmark } from "@/components/ui/Wordmark";
 
 export function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 32);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-black/5 bg-background/80 backdrop-blur dark:border-white/10">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        scrolled
+          ? "border-b border-white/10 bg-background/80 backdrop-blur-md"
+          : "border-b border-transparent bg-transparent"
+      }`}
+    >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Link href="/" className="font-mono text-lg font-bold tracking-tight">
-          {site.shortName}
+        <Link href="/" aria-label={site.name}>
+          <Wordmark />
         </Link>
-        <ul className="hidden items-center gap-8 text-sm font-medium sm:flex">
+        <ul className="hidden items-center gap-8 text-sm sm:flex">
           {site.nav.map((item) => (
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="text-foreground/70 transition-colors hover:text-foreground"
+                className="text-muted transition-colors hover:text-foreground"
               >
                 {item.label}
               </Link>
@@ -21,10 +40,10 @@ export function Navbar() {
           ))}
         </ul>
         <Link
-          href="#contact"
-          className="rounded-full bg-foreground px-4 py-2 text-sm font-medium text-background transition-opacity hover:opacity-90"
+          href="#download"
+          className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-black transition-colors hover:bg-accent-bright"
         >
-          Get in touch
+          download
         </Link>
       </nav>
     </header>
