@@ -41,6 +41,12 @@ export function Navbar() {
         </ul>
         <div className="flex shrink-0 items-center gap-2">
           <ThemeToggle />
+          <Link
+            href="/login"
+            className="hidden h-10 items-center rounded-full px-4 text-sm text-muted transition-colors hover:text-foreground sm:flex"
+          >
+            Sign in
+          </Link>
           <Magnetic>
             <Link
               href="#download"
