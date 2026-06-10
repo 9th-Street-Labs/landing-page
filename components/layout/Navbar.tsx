@@ -6,15 +6,29 @@ import { site } from "@/lib/site";
 import { Wordmark } from "@/components/ui/Wordmark";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { Magnetic } from "@/components/ui/Magnetic";
+import { createClient } from "@/lib/supabase/client";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  // null = unknown (still checking); avoids flashing "Sign in" before the
+  // session resolves for an already-authenticated visitor.
+  const [signedIn, setSignedIn] = useState<boolean | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 32);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data }) => setSignedIn(!!data.user));
+    // Keep the navbar in sync with sign-in / sign-out happening anywhere.
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => setSignedIn(!!session?.user));
+    return () => subscription.unsubscribe();
   }, []);
 
   return (
@@ -42,10 +56,11 @@ export function Navbar() {
         <div className="flex shrink-0 items-center gap-2">
           <ThemeToggle />
           <Link
-            href="/login"
+            href={signedIn ? "/dashboard" : "/login"}
             className="hidden h-10 items-center rounded-full px-4 text-sm text-muted transition-colors hover:text-foreground sm:flex"
+            style={{ visibility: signedIn === null ? "hidden" : "visible" }}
           >
-            Sign in
+            {signedIn ? "Dashboard" : "Sign in"}
           </Link>
           <Magnetic>
             <Link
