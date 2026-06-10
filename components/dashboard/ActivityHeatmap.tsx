@@ -53,15 +53,17 @@ export function ActivityHeatmap({ data }: { data: DailyUsage[] }) {
         </div>
       </div>
 
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto pb-1">
         <div className="inline-flex flex-col gap-1.5">
-          {/* month labels */}
-          <div className="flex pl-9 text-[11px] text-faint">
-            <div className="relative flex" style={{ width: weeks.length * 15 }}>
+          {/* month labels — explicit height so the grid below doesn't overlap it
+              (absolute children give the row zero height otherwise). paddingLeft
+              matches the day-label column (w-7 = 28px) + the gap-1.5 (6px). */}
+          <div className="flex text-[11px] text-faint" style={{ paddingLeft: 34 }}>
+            <div className="relative h-4" style={{ width: weeks.length * 15 }}>
               {monthLabels.map((m) => (
                 <span
                   key={`${m.col}-${m.label}`}
-                  className="absolute"
+                  className="absolute top-0 whitespace-nowrap"
                   style={{ left: m.col * 15 }}
                 >
                   {m.label}
@@ -100,16 +102,16 @@ export function ActivityHeatmap({ data }: { data: DailyUsage[] }) {
               ))}
             </div>
           </div>
-
-          {/* legend */}
-          <div className="flex items-center justify-end gap-1.5 pt-1 text-[11px] text-faint">
-            <span>Less</span>
-            {LEVEL_BG.map((bg, i) => (
-              <span key={i} className={`h-[12px] w-[12px] rounded-[3px] ${bg} ring-1 ring-inset ring-line`} />
-            ))}
-            <span>More</span>
-          </div>
         </div>
+      </div>
+
+      {/* legend — outside the horizontal scroll area so it's never clipped */}
+      <div className="mt-3 flex items-center justify-end gap-1.5 text-[11px] text-faint">
+        <span>Less</span>
+        {LEVEL_BG.map((bg, i) => (
+          <span key={i} className={`h-[12px] w-[12px] rounded-[3px] ${bg} ring-1 ring-inset ring-line`} />
+        ))}
+        <span>More</span>
       </div>
     </div>
   );
