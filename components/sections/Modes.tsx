@@ -37,7 +37,7 @@ export function Modes() {
               delay={i * 0.08}
               className="min-w-[280px] snap-start sm:min-w-0"
             >
-              <article className="flex h-full flex-col gap-5 rounded-2xl border border-white/10 bg-surface p-6 transition-colors hover:border-white/20">
+              <article className="flex h-full flex-col gap-5 rounded-2xl border border-line bg-surface p-6 transition-colors hover:border-line-strong">
                 <div className="rounded-xl bg-surface-2 py-3">
                   <Demo />
                 </div>

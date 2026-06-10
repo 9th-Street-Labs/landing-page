@@ -14,7 +14,7 @@ export function Measured() {
   return (
     <section
       aria-labelledby="measured-heading"
-      className="border-y border-white/10 bg-surface"
+      className="border-y border-line bg-surface"
     >
       <div className="mx-auto max-w-6xl px-6 py-28 sm:py-36">
         <Reveal>
@@ -36,7 +36,7 @@ export function Measured() {
           ))}
         </div>
         <Reveal className="mt-20">
-          <div className="rounded-2xl border border-white/10 bg-background p-6">
+          <div className="rounded-2xl border border-line bg-background p-6">
             <p className="font-mono text-xs text-faint">
               diagnostics / one-way latency
             </p>
@@ -48,7 +48,7 @@ export function Measured() {
                 >
                   <div
                     className={`w-full rounded-t ${
-                      i === 1 ? "bg-accent" : "bg-white/15"
+                      i === 1 ? "bg-accent" : "bg-fill-strong"
                     }`}
                     style={{ height: `${p.height}%` }}
                   />

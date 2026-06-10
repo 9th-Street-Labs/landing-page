@@ -12,7 +12,7 @@ export function PresenterPulse() {
           className="flex h-9 w-9 items-center justify-center rounded-lg font-mono text-xs"
           style={{
             animation: `key-pulse 3.6s ease-in-out ${i * 0.6}s infinite`,
-            backgroundColor: "rgba(255,255,255,0.06)",
+            backgroundColor: "var(--fill)",
             color: "var(--muted)",
           }}
         >

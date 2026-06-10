@@ -30,7 +30,7 @@ export function MeshDiagram() {
   const inView = useInView(ref, { once: false, margin: "-80px" });
 
   return (
-    <div ref={ref} className="rounded-2xl border border-white/10 bg-surface p-4 sm:p-8">
+    <div ref={ref} className="rounded-2xl border border-line bg-surface p-4 sm:p-8">
       <svg
         viewBox="0 0 800 420"
         className="w-full"
@@ -42,7 +42,7 @@ export function MeshDiagram() {
           <path
             key={`${a}-${b}`}
             d={edgePath(a, b)}
-            stroke="rgba(255,255,255,0.12)"
+            className="stroke-line"
             strokeWidth="1.5"
             fill="none"
           />
@@ -51,7 +51,7 @@ export function MeshDiagram() {
         {/* traveling packets */}
         {inView &&
           EDGES.map(([a, b], i) => (
-            <circle key={`p-${a}-${b}`} r="4" fill="#ff3d00">
+            <circle key={`p-${a}-${b}`} r="4" className="fill-accent">
               <animateMotion
                 dur={`${2.2 + i * 0.5}s`}
                 repeatCount="indefinite"
@@ -71,8 +71,7 @@ export function MeshDiagram() {
                 width={n.w}
                 height={n.h}
                 rx="10"
-                fill="#0a0a0a"
-                stroke="rgba(255,255,255,0.2)"
+                className="fill-diagram-node stroke-line-strong"
                 strokeWidth="1.5"
               />
               {/* screen content lines */}
@@ -81,7 +80,7 @@ export function MeshDiagram() {
                 y1={n.y - 18}
                 x2={n.x + n.w / 2 - 40}
                 y2={n.y - 18}
-                stroke="rgba(255,255,255,0.15)"
+                className="stroke-line"
                 strokeWidth="4"
                 strokeLinecap="round"
               />
@@ -90,7 +89,7 @@ export function MeshDiagram() {
                 y1={n.y - 2}
                 x2={n.x + n.w / 2 - 70}
                 y2={n.y - 2}
-                stroke="rgba(255,61,0,0.5)"
+                className="stroke-accent/50"
                 strokeWidth="4"
                 strokeLinecap="round"
               />
@@ -98,7 +97,7 @@ export function MeshDiagram() {
                 x={n.x}
                 y={n.y + n.h / 2 + 24}
                 textAnchor="middle"
-                fill="#6b6b6b"
+                className="fill-faint"
                 fontSize="14"
                 fontFamily="var(--font-geist-mono)"
               >
@@ -125,8 +124,7 @@ export function MeshDiagram() {
           >
             <path
               d="M0 -6 L0 8 L4 4.5 L7 11 L9.5 10 L6.5 3.5 L12 3 Z"
-              fill="#f5f5f5"
-              stroke="#000"
+              className="fill-cursor stroke-background"
               strokeWidth="1"
             />
           </motion.g>
@@ -140,22 +138,20 @@ export function MeshDiagram() {
             width={NODES.phone.w}
             height={NODES.phone.h}
             rx="14"
-            fill="#141414"
-            stroke="#ff3d00"
+            className="fill-surface-2 stroke-accent"
             strokeWidth="1.5"
           />
           <circle
             cx={NODES.phone.x}
             cy={NODES.phone.y + 28}
             r="3"
-            fill="#ff3d00"
-            className="animate-pulse-dot"
+            className="animate-pulse-dot fill-accent"
           />
           <text
             x={NODES.phone.x}
             y={NODES.phone.y + NODES.phone.h / 2 + 24}
             textAnchor="middle"
-            fill="#6b6b6b"
+            className="fill-faint"
             fontSize="14"
             fontFamily="var(--font-geist-mono)"
           >

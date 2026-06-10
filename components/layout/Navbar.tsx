@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { site } from "@/lib/site";
 import { Wordmark } from "@/components/ui/Wordmark";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -19,7 +20,7 @@ export function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
         scrolled
-          ? "border-b border-white/10 bg-background/80 backdrop-blur-md"
+          ? "border-b border-line bg-background/80 backdrop-blur-md"
           : "border-b border-transparent bg-transparent"
       }`}
     >
@@ -39,12 +40,15 @@ export function Navbar() {
             </li>
           ))}
         </ul>
-        <Link
-          href="#download"
-          className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-black transition-colors hover:bg-accent-bright"
-        >
-          download
-        </Link>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <Link
+            href="#download"
+            className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent-bright"
+          >
+            download
+          </Link>
+        </div>
       </nav>
     </header>
   );

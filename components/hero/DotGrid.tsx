@@ -24,6 +24,22 @@ export function DotGrid() {
     let running = false;
     const pointer = { x: -9999, y: -9999 };
 
+    // Canvas can't read CSS vars at paint time — pull the idle dot color from
+    // the resolved theme and re-read it whenever data-theme flips.
+    let idleColor = "rgba(255, 255, 255, 0.08)";
+    const readTheme = () => {
+      const v = getComputedStyle(document.documentElement)
+        .getPropertyValue("--dot-idle")
+        .trim();
+      if (v) idleColor = v;
+    };
+    readTheme();
+    const themeObserver = new MutationObserver(readTheme);
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
       width = rect.width;
@@ -45,7 +61,7 @@ export function DotGrid() {
             ctx.arc(x, y, RADIUS + t * 1.6, 0, Math.PI * 2);
             ctx.fill();
           } else {
-            ctx.fillStyle = "rgba(255, 255, 255, 0.08)";
+            ctx.fillStyle = idleColor;
             ctx.beginPath();
             ctx.arc(x, y, RADIUS, 0, Math.PI * 2);
             ctx.fill();
@@ -85,6 +101,7 @@ export function DotGrid() {
       running = false;
       cancelAnimationFrame(raf);
       observer.disconnect();
+      themeObserver.disconnect();
       window.removeEventListener("resize", resize);
       window.removeEventListener("pointermove", onMove);
       window.removeEventListener("pointerleave", onLeave);

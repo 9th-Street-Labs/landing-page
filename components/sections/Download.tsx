@@ -7,7 +7,7 @@ export function Download() {
     <section
       id="download"
       aria-labelledby="download-heading"
-      className="border-t border-white/10"
+      className="border-t border-line"
     >
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-8 px-6 py-28 text-center sm:py-40">
         <Reveal>
@@ -33,7 +33,7 @@ export function Download() {
             {site.downloads.stores.map((store) => (
               <span
                 key={store.label}
-                className="rounded-full border border-white/15 px-5 py-2 font-mono text-xs text-faint"
+                className="rounded-full border border-line-strong px-5 py-2 font-mono text-xs text-faint"
               >
                 {store.label}
               </span>

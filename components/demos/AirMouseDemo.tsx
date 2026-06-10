@@ -65,23 +65,23 @@ export function AirMouseDemo() {
         ref={frameRef}
         onPointerMove={onPointerMove}
         onPointerLeave={() => setActive(false)}
-        className="relative aspect-video cursor-none overflow-hidden rounded-2xl border border-white/15 bg-surface"
+        className="relative aspect-video cursor-none overflow-hidden rounded-2xl border border-line-strong bg-surface"
       >
         {/* mock agent terminal */}
         <div className="pointer-events-none absolute inset-0 p-5 font-mono text-xs leading-relaxed text-faint sm:p-8 sm:text-sm">
           <p className="text-muted">$ claude</p>
           <p className="mt-2">✻ refactoring auth middleware…</p>
           <p>✻ 14 files changed, tests passing</p>
-          <div className="mt-4 max-w-sm rounded-lg border border-white/15 bg-surface-2 p-4">
+          <div className="mt-4 max-w-sm rounded-lg border border-line-strong bg-surface-2 p-4">
             <p className="text-foreground">
               agent wants to run{" "}
               <span className="text-accent">npm run deploy</span>
             </p>
             <div className="mt-3 flex gap-2">
-              <span className="rounded bg-accent px-3 py-1 font-semibold text-black">
+              <span className="rounded bg-accent px-3 py-1 font-semibold text-white">
                 allow
               </span>
-              <span className="rounded border border-white/20 px-3 py-1">
+              <span className="rounded border border-line-strong px-3 py-1">
                 deny
               </span>
             </div>
@@ -105,7 +105,7 @@ export function AirMouseDemo() {
         </motion.div>
 
         {/* latency readout */}
-        <div className="pointer-events-none absolute right-4 top-4 rounded-md border border-white/10 bg-background/70 px-3 py-1.5 font-mono text-xs backdrop-blur">
+        <div className="pointer-events-none absolute right-4 top-4 rounded-md border border-line bg-background/70 px-3 py-1.5 font-mono text-xs backdrop-blur">
           <span className="text-faint">latency </span>
           <span className="text-accent">{latency}ms</span>
           <span className="pl-2 text-faint">· simulated</span>
@@ -119,10 +119,10 @@ export function AirMouseDemo() {
         aria-hidden="true"
       >
         <motion.div
-          className="flex h-64 w-32 flex-col items-center justify-between rounded-[1.75rem] border border-white/20 bg-surface-2 p-3"
+          className="flex h-64 w-32 flex-col items-center justify-between rounded-[1.75rem] border border-line-strong bg-surface-2 p-3"
           style={{ rotateX: phoneRotX, rotateY: phoneRotY }}
         >
-          <span className="h-1 w-10 rounded-full bg-white/15" />
+          <span className="h-1 w-10 rounded-full bg-fill-strong" />
           <span className="font-mono text-[10px] lowercase text-faint">
             whip (app)
           </span>

@@ -3,9 +3,9 @@ import type { ReactNode } from "react";
 
 const variants = {
   accent:
-    "bg-accent text-black hover:bg-accent-bright font-semibold",
+    "bg-accent text-white hover:bg-accent-bright font-semibold",
   ghost:
-    "border border-white/15 text-muted hover:border-white/30 hover:text-foreground",
+    "border border-line-strong text-muted hover:border-foreground/40 hover:text-foreground",
 } as const;
 
 export function Button({

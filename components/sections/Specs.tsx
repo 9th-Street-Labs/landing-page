@@ -30,11 +30,11 @@ export function Specs() {
                 <div className="flex flex-col items-center">
                   <span
                     className={`flex h-3 w-3 shrink-0 rounded-full ${
-                      i === 0 ? "bg-accent" : "bg-white/25"
+                      i === 0 ? "bg-accent" : "bg-fill-strong"
                     }`}
                   />
                   {i < site.connectivity.length - 1 && (
-                    <span className="w-px flex-1 bg-white/15" />
+                    <span className="w-px flex-1 bg-line-strong" />
                   )}
                 </div>
                 <div className="-mt-1">
@@ -47,14 +47,14 @@ export function Specs() {
               </li>
             ))}
           </ol>
-          <div className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-surface p-6">
+          <div className="flex flex-col gap-4 rounded-2xl border border-line bg-surface p-6">
             <p className="font-mono text-xs text-faint">trust model</p>
             <ul className="flex flex-col gap-2 font-mono text-sm text-muted">
               {site.trust.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <p className="mt-2 border-t border-white/10 pt-4 text-sm font-semibold text-accent">
+            <p className="mt-2 border-t border-line pt-4 text-sm font-semibold text-accent">
               no cloud relay — everything stays on your network.
             </p>
           </div>

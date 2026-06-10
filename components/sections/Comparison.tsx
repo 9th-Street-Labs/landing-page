@@ -19,7 +19,7 @@ export function Comparison() {
       <div className="mt-8 overflow-x-auto">
         <table className="w-full min-w-[560px] border-collapse text-sm">
           <thead>
-            <tr className="border-b border-white/15 text-left font-mono text-xs text-faint">
+            <tr className="border-b border-line-strong text-left font-mono text-xs text-faint">
               <th className="py-3 pr-4 font-normal">feature</th>
               <th className="px-4 py-3 font-bold text-accent">whip</th>
               {competitors.map((name) => (
@@ -31,7 +31,7 @@ export function Comparison() {
           </thead>
           <tbody>
             {rows.map((row) => (
-              <tr key={row.feature} className="border-b border-white/[0.06]">
+              <tr key={row.feature} className="border-b border-line">
                 <td className="py-3 pr-4 text-muted">{row.feature}</td>
                 <td className="px-4 py-3">
                   <Check on={row.whip} accent />
@@ -54,7 +54,7 @@ export function Comparison() {
               href={link.href}
               target="_blank"
               rel="noreferrer"
-              className="underline decoration-white/20 underline-offset-2 hover:text-muted"
+              className="underline decoration-faint/40 underline-offset-2 hover:text-muted"
             >
               {link.label}
             </a>

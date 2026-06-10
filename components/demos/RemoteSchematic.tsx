@@ -3,13 +3,12 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 
-const STROKE = "rgba(255,255,255,0.4)";
-
 export function RemoteSchematic() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   const draw = (delay: number) => ({
+    className: "stroke-schematic",
     initial: { pathLength: 0 },
     animate: inView ? { pathLength: 1 } : { pathLength: 0 },
     transition: { duration: 1.2, delay, ease: "easeInOut" as const },
@@ -31,7 +30,6 @@ export function RemoteSchematic() {
           height="380"
           rx="45"
           fill="none"
-          stroke={STROKE}
           strokeWidth="1.5"
           {...draw(0)}
         />
@@ -41,7 +39,6 @@ export function RemoteSchematic() {
           cy="120"
           r="26"
           fill="none"
-          stroke={STROKE}
           strokeWidth="1.5"
           {...draw(0.3)}
         />
@@ -50,7 +47,6 @@ export function RemoteSchematic() {
           cy="120"
           r="10"
           fill="none"
-          stroke={STROKE}
           strokeWidth="1"
           {...draw(0.5)}
         />
@@ -58,14 +54,12 @@ export function RemoteSchematic() {
         <motion.path
           d="M 68 185 A 32 32 0 0 1 95 170 L 95 215 L 68 215 Z"
           fill="none"
-          stroke={STROKE}
           strokeWidth="1"
           {...draw(0.6)}
         />
         <motion.path
           d="M 132 185 A 32 32 0 0 0 105 170 L 105 215 L 132 215 Z"
           fill="none"
-          stroke={STROKE}
           strokeWidth="1"
           {...draw(0.6)}
         />
@@ -75,7 +69,6 @@ export function RemoteSchematic() {
           cy="250"
           r="18"
           fill="none"
-          stroke={STROKE}
           strokeWidth="1.5"
           {...draw(0.8)}
         />
@@ -84,7 +77,6 @@ export function RemoteSchematic() {
           cy="295"
           r="10"
           fill="none"
-          stroke={STROKE}
           strokeWidth="1"
           {...draw(0.9)}
         />
@@ -93,7 +85,6 @@ export function RemoteSchematic() {
           cy="295"
           r="10"
           fill="none"
-          stroke={STROKE}
           strokeWidth="1"
           {...draw(0.9)}
         />
@@ -105,7 +96,6 @@ export function RemoteSchematic() {
           height="30"
           rx="3"
           fill="none"
-          stroke={STROKE}
           strokeWidth="1"
           strokeDasharray="3 3"
           {...draw(1.1)}
@@ -113,32 +103,30 @@ export function RemoteSchematic() {
         <motion.path
           d="M 115 345 L 165 345"
           fill="none"
-          stroke={STROKE}
           strokeWidth="1"
           {...draw(1.3)}
         />
         <text
           x="168"
           y="348"
-          fill="#6b6b6b"
+          className="fill-faint"
           fontSize="9"
           fontFamily="var(--font-geist-mono)"
         >
           imu
         </text>
         {/* RGB LED */}
-        <circle cx="100" cy="45" r="4" fill="#ff3d00" className="animate-led-glow" />
+        <circle cx="100" cy="45" r="4" className="animate-led-glow fill-accent" />
         <motion.path
           d="M 104 45 L 160 45"
           fill="none"
-          stroke={STROKE}
           strokeWidth="1"
           {...draw(1.3)}
         />
         <text
           x="163"
           y="48"
-          fill="#6b6b6b"
+          className="fill-faint"
           fontSize="9"
           fontFamily="var(--font-geist-mono)"
         >

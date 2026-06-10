@@ -30,7 +30,7 @@ export function Mesh() {
       <div className="mt-10 grid gap-5 sm:grid-cols-3">
         {site.mesh.features.map((feature, i) => (
           <Reveal key={feature.name} delay={i * 0.08}>
-            <div className="rounded-2xl border border-white/10 bg-surface p-6">
+            <div className="rounded-2xl border border-line bg-surface p-6">
               <h3 className="font-bold lowercase">
                 {feature.name}{" "}
                 <span className="font-normal text-faint">

@@ -9,7 +9,7 @@ export function HardwareRemote() {
     <section
       id="remote"
       aria-labelledby="remote-heading"
-      className="border-y border-white/10 bg-surface"
+      className="border-y border-line bg-surface"
     >
       <div className="mx-auto grid max-w-6xl gap-16 px-6 py-28 sm:py-36 lg:grid-cols-2 lg:items-center">
         <div>

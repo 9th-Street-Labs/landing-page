@@ -4,7 +4,7 @@ export function Ticker() {
   const items = [...site.ticker, ...site.ticker];
   return (
     <div
-      className="w-full overflow-hidden border-y border-white/10 py-3"
+      className="w-full overflow-hidden border-y border-line py-3"
       aria-label={site.ticker.join(", ")}
     >
       <div className="animate-marquee flex w-max gap-0" aria-hidden="true">

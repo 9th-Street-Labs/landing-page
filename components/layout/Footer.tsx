@@ -4,7 +4,7 @@ import { Wordmark } from "@/components/ui/Wordmark";
 
 export function Footer() {
   return (
-    <footer className="mt-auto border-t border-white/10">
+    <footer className="mt-auto border-t border-line">
       <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-6 py-12 sm:flex-row sm:items-center">
         <div className="flex flex-col gap-2">
           <Wordmark />
