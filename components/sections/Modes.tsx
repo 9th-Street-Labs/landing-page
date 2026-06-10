@@ -25,7 +25,7 @@ export function Modes() {
         <SectionHeading
           number="02"
           name="modes"
-          headline="four ways to ==accent:whip==."
+          headline="Four ways to ==accent:whip==."
           id="modes-heading"
         />
       </Reveal>
@@ -42,7 +42,7 @@ export function Modes() {
                 <div className="rounded-xl bg-surface-2 py-3">
                   <Demo />
                 </div>
-                <h3 className="text-lg font-bold lowercase">
+                <h3 className="text-lg font-semibold lowercase">
                   {mode.name}{" "}
                   <span className="font-normal text-faint">
                     ({mode.qualifier})

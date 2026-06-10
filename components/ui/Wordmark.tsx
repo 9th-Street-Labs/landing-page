@@ -8,7 +8,7 @@ export function Wordmark({
 }) {
   if (variant === "short") {
     return (
-      <span className={`font-black lowercase tracking-tight ${className}`}>
+      <span className={`font-semibold lowercase tracking-tight ${className}`}>
         <span className="text-accent">9</span>
         <span className="text-foreground">st.ai</span>
       </span>
@@ -16,7 +16,7 @@ export function Wordmark({
   }
   return (
     <span
-      className={`whitespace-nowrap font-black lowercase tracking-tight ${className}`}
+      className={`whitespace-nowrap font-semibold lowercase tracking-tight ${className}`}
     >
       <span className="text-accent">9</span>
       <span className="text-foreground">th </span>

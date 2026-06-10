@@ -20,7 +20,7 @@ export function SectionHeading({
       <SplitReveal
         as="h2"
         id={id}
-        className="max-w-3xl text-4xl font-extrabold lowercase tracking-tight sm:text-6xl"
+        className="max-w-3xl text-4xl font-medium tracking-tight sm:text-6xl"
       >
         <Highlight>{headline}</Highlight>
       </SplitReveal>

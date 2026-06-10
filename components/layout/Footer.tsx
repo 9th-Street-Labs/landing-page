@@ -65,7 +65,7 @@ export function Footer() {
       {/* giant wordmark, gsap.com-style */}
       <SplitReveal
         as="div"
-        className="pointer-events-none mx-auto max-w-6xl px-6 pb-4 text-center text-[clamp(3.5rem,13.5vw,12rem)] font-black lowercase leading-none tracking-[-0.05em] whitespace-nowrap select-none"
+        className="pointer-events-none mx-auto max-w-6xl px-6 pb-4 text-center text-[clamp(3.5rem,13.5vw,12rem)] font-medium lowercase leading-none tracking-[-0.04em] whitespace-nowrap select-none"
       >
         <span aria-hidden="true">
           <span className="text-accent">9</span>

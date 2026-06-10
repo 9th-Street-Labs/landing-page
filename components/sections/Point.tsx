@@ -13,7 +13,7 @@ export function Point() {
         <SectionHeading
           number="01"
           name="point"
-          headline="your agent asked a question. answer it from the ==accent:couch==."
+          headline="Your agent asked a question. Answer it from the ==accent:couch==."
           id="point-heading"
         />
         <p className="mt-6 max-w-2xl text-muted">

@@ -12,17 +12,17 @@ export function Comparison() {
       <div className="grid overflow-hidden rounded-3xl md:grid-cols-2">
         {/* the others */}
         <div className="flex flex-col gap-12 bg-black p-8 sm:p-12">
-          <h3 className="text-3xl font-bold lowercase tracking-tight text-white/40 sm:text-4xl md:text-right">
+          <h3 className="text-3xl font-medium tracking-tight text-white/40 sm:text-4xl md:text-right">
             {others.headline}
           </h3>
           <div className="flex flex-1 flex-col justify-end gap-6 md:items-end md:text-right">
-            <p className="text-xl font-bold lowercase text-white/60">
+            <p className="text-xl font-medium text-white/60">
               {others.name}
             </p>
             <dl className="flex flex-col gap-5">
               {others.rows.map((row) => (
                 <div key={row.label} className="md:text-right">
-                  <dd className="text-2xl font-bold text-white/45">
+                  <dd className="text-2xl font-semibold text-white/45">
                     {row.value}
                     {row.unit && (
                       <span className="pl-1 text-base font-normal text-white/30">
@@ -41,18 +41,18 @@ export function Comparison() {
 
         {/* whip */}
         <div className="flex flex-col gap-12 bg-accent p-8 sm:p-12">
-          <h3 className="text-3xl font-bold lowercase tracking-tight text-white sm:text-4xl">
+          <h3 className="text-3xl font-medium tracking-tight text-white sm:text-4xl">
             whip drives your agents.{" "}
-            <span className="text-black/40">and everything else.</span>
+            <span className="text-black/40">And everything else.</span>
           </h3>
           <div className="flex flex-1 flex-col justify-end gap-6">
-            <p className="text-xl font-bold lowercase text-white">
+            <p className="text-xl font-medium text-white">
               {whip.name}
             </p>
             <dl className="flex flex-col gap-5">
               {whip.rows.map((row) => (
                 <div key={row.label}>
-                  <dd className="text-2xl font-bold text-white">
+                  <dd className="text-2xl font-semibold text-white">
                     {row.value}
                     {row.unit && (
                       <span className="pl-1 text-base font-normal text-black/50">

@@ -15,7 +15,7 @@ export function Measured() {
           <SectionHeading
             number="05"
             name="measured"
-            headline="performance is ==accent:measured==, not promised."
+            headline="Performance is ==accent:measured==, not promised."
             id="measured-heading"
           />
           <p className="mt-6 max-w-2xl text-muted">

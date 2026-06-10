@@ -15,7 +15,7 @@ export function Specs() {
         <SectionHeading
           number="06"
           name="specs"
-          headline="under the hood."
+          headline="Under the hood."
           id="specs-heading"
         />
       </Reveal>

@@ -42,8 +42,9 @@ export function HeroIntro({
 
         document.fonts.ready.then(() => {
           if (!root.isConnected) return;
+          // words wrapper prevents mid-word line breaks once chars become spans
           SplitText.create(title, {
-            type: "chars",
+            type: "words,chars",
             mask: "chars",
             aria: "auto",
             onSplit: (self) => {

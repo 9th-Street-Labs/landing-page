@@ -14,11 +14,11 @@ export function Download() {
         <Reveal>
           <h2
             id="download-heading"
-            className="text-5xl font-black lowercase tracking-tight sm:text-7xl"
+            className="text-4xl font-medium tracking-tight sm:text-6xl"
           >
-            crack the whip<span className="text-accent">.</span>
+            Crack the <span className="text-accent">whip</span>.
           </h2>
-          <p className="mt-4 text-lg text-muted">your agents are waiting.</p>
+          <p className="mt-4 text-lg text-muted">Your agents are waiting.</p>
         </Reveal>
         <Reveal delay={0.1}>
           <div className="flex flex-wrap items-center justify-center gap-4">

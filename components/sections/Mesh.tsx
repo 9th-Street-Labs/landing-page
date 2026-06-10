@@ -15,7 +15,7 @@ export function Mesh() {
         <SectionHeading
           number="03"
           name="mesh"
-          headline="agents on three machines. ==accent:one whip==."
+          headline="Agents on three machines. ==accent:One whip==."
           id="mesh-heading"
         />
         <p className="mt-6 max-w-2xl text-muted">
@@ -34,7 +34,7 @@ export function Mesh() {
         {site.mesh.features.map((feature, i) => (
           <Reveal key={feature.name} delay={i * 0.08}>
             <div className="rounded-2xl border border-line bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40">
-              <h3 className="font-bold lowercase">
+              <h3 className="font-semibold lowercase">
                 {feature.name}{" "}
                 <span className="font-normal text-faint">
                   ({feature.qualifier})

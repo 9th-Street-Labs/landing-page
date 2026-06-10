@@ -13,8 +13,11 @@ export function Hero() {
         <p data-hero="eyebrow" className="font-mono text-sm text-faint">
           9th street labs presents
         </p>
-        <h1 className="text-[clamp(4rem,12vw,10rem)] font-black lowercase leading-none tracking-[-0.04em]">
-          <span data-hero="title">{site.product}</span>
+        <h1 className="max-w-4xl text-[clamp(2.75rem,6vw,5.5rem)] font-medium leading-[1.05] tracking-[-0.03em]">
+          <span data-hero="title">
+            This is the <span className="text-accent">{site.product}</span> for
+            your agents.
+          </span>
           <span data-hero="caret" className="animate-caret text-accent">
             _
           </span>
@@ -23,11 +26,10 @@ export function Hero() {
           data-hero="tagline"
           className="max-w-xl text-lg leading-relaxed text-muted sm:text-xl"
         >
-          {site.tagline}. they code on your desktops — you drive them from the
-          couch.{" "}
-          <span className="text-foreground">point, type, talk.</span>{" "}
+          They code on your desktops — you drive them from the couch.{" "}
+          <span className="text-foreground">Point, type, talk.</span>{" "}
           <span className="text-foreground">
-            never babysit a terminal again.
+            Never babysit a terminal again.
           </span>
         </p>
         <div

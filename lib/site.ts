@@ -121,7 +121,7 @@ export const site = {
   comparison: {
     others: {
       name: "desktop-only KVMs",
-      headline: "the others just move your mouse.",
+      headline: "The others just move your mouse.",
       rows: [
         { value: "yes", unit: "", label: "keyboard + mouse mesh" },
         { value: "—", unit: "", label: "phone as input" },
