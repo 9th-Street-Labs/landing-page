@@ -1,3 +1,6 @@
+import { SplitReveal } from "@/components/ui/SplitReveal";
+import { Highlight } from "@/components/ui/Highlight";
+
 export function SectionHeading({
   number,
   name,
@@ -14,12 +17,13 @@ export function SectionHeading({
       <p className="font-mono text-sm text-faint">
         <span className="text-accent">{number}</span> / {name}
       </p>
-      <h2
+      <SplitReveal
+        as="h2"
         id={id}
         className="max-w-3xl text-4xl font-extrabold lowercase tracking-tight sm:text-6xl"
       >
-        {headline}
-      </h2>
+        <Highlight>{headline}</Highlight>
+      </SplitReveal>
     </div>
   );
 }

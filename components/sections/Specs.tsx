@@ -2,6 +2,7 @@ import { site } from "@/lib/site";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { Comparison } from "@/components/sections/Comparison";
+import { Highlight } from "@/components/ui/Highlight";
 
 export function Specs() {
   return (
@@ -42,7 +43,9 @@ export function Specs() {
                     {lane.name}{" "}
                     <span className="text-faint">({lane.qualifier})</span>
                   </h3>
-                  <p className="mt-1 text-sm text-muted">{lane.copy}</p>
+                  <p className="mt-1 text-sm text-muted">
+                    <Highlight>{lane.copy}</Highlight>
+                  </p>
                 </div>
               </li>
             ))}

@@ -7,6 +7,7 @@ export const site = {
   description:
     "whip by 9th Street Labs — the whip for your AI agents. They code on your desktops; you drive them from your phone. Point, type, talk — never babysit a terminal again.",
   url: "https://9thstreetlabs.com",
+  domain: "9st.ai",
   nav: [
     { label: "point", href: "#point" },
     { label: "modes", href: "#modes" },
@@ -40,25 +41,25 @@ export const site = {
     {
       name: "voice",
       qualifier: "push-to-talk",
-      copy: "Dictate the next prompt from the kitchen. Hold to talk — speech streams to Deepgram Flux and types into your agent's terminal.",
+      copy: "Dictate the next prompt from the kitchen. Hold to talk — speech streams to ==white:Deepgram Flux== and types into your agent's terminal.",
       footnote: "11 languages · API key never touches your phone",
     },
     {
       name: "keyboard",
       qualifier: "layout-free",
-      copy: "Your agent asked a question. Reply from your pocket — text diff-syncs to the desktop, no layout problems, ever.",
+      copy: "Your agent asked a question. Reply from your pocket — text ==white:diff-syncs== to the desktop, ==white:no layout problems, ever==.",
       footnote: "esc · tab · arrows · enter included",
     },
     {
       name: "trackpad",
       qualifier: "touch-relative",
-      copy: "Precision when you need it. Touch-relative surface with click zones and a scroll strip — scrub the diff, hit the button.",
+      copy: "Precision when you need it. Touch-relative surface with ==white:click zones== and a scroll strip — scrub the diff, hit the button.",
       footnote: "two-finger scroll · tap-click",
     },
     {
       name: "remote",
       qualifier: "presenter + media",
-      copy: "Slides and media keys too. Advance the deck, blank the screen, skip the track — same phone, same mesh.",
+      copy: "Slides and media keys too. Advance the deck, blank the screen, skip the track — ==white:same phone, same mesh==.",
       footnote: "prev / next · F5 · play · volume",
     },
   ],
@@ -67,17 +68,17 @@ export const site = {
       {
         name: "clipboard",
         qualifier: "synced",
-        copy: "Text and images follow your cursor across machines.",
+        copy: "Text and images ==white:follow your cursor== across machines.",
       },
       {
         name: "files",
         qualifier: "drag-drop",
-        copy: "Sling files between desktops over TLS, hash-verified.",
+        copy: "Sling files between desktops over TLS, ==white:hash-verified==.",
       },
       {
         name: "discovery",
         qualifier: "mDNS + QR",
-        copy: "Desktops find each other. Phones pair with one scan.",
+        copy: "Desktops find each other. Phones pair with ==white:one scan==.",
       },
     ],
   },
@@ -99,17 +100,17 @@ export const site = {
     {
       name: "webrtc datachannel",
       qualifier: "primary",
-      copy: "Unreliable, unordered, low-latency — built for input events.",
+      copy: "Unreliable, unordered, ==white:low-latency== — built for input events.",
     },
     {
       name: "websocket",
       qualifier: "floor",
-      copy: "Always-works fallback on any network that passes TCP.",
+      copy: "==white:Always-works== fallback on any network that passes TCP.",
     },
     {
       name: "ble gatt",
       qualifier: "no shared wi-fi? still works",
-      copy: "Direct radio lane between phone and desktop. No router required.",
+      copy: "Direct radio lane between phone and desktop. ==white:No router required==.",
     },
   ],
   trust: [
@@ -118,16 +119,29 @@ export const site = {
     "fingerprint-pinned TLS",
   ],
   comparison: {
-    competitors: ["Deskflow", "Input Leap", "Lan Mouse"],
-    rows: [
-      { feature: "phone as input peer", whip: true, others: [false, false, false] },
-      { feature: "air-mouse pointing", whip: true, others: [false, false, false] },
-      { feature: "voice dictation", whip: true, others: [false, false, false] },
-      { feature: "hardware remote", whip: true, others: [false, false, false] },
-      { feature: "measured latency, in-app", whip: true, others: [false, false, false] },
-      { feature: "desktop KVM mesh", whip: true, others: [true, true, true] },
-      { feature: "clipboard + files", whip: true, others: [true, true, false] },
-    ],
+    others: {
+      name: "desktop-only KVMs",
+      headline: "the others just move your mouse.",
+      rows: [
+        { value: "yes", unit: "", label: "keyboard + mouse mesh" },
+        { value: "—", unit: "", label: "phone as input" },
+        { value: "—", unit: "", label: "air-mouse pointing" },
+        { value: "—", unit: "", label: "voice dictation" },
+        { value: "—", unit: "", label: "hardware remote" },
+        { value: "—", unit: "", label: "latency, measured in-app" },
+      ],
+    },
+    whip: {
+      name: "whip",
+      rows: [
+        { value: "<3", unit: "ms p95", label: "keyboard + mouse mesh" },
+        { value: "first", unit: "class", label: "phone as input" },
+        { value: "<25", unit: "ms", label: "air-mouse pointing" },
+        { value: "11", unit: "languages", label: "voice dictation" },
+        { value: "dual", unit: "mode", label: "hardware remote" },
+        { value: "p50", unit: "/ p95 / p99", label: "latency, measured in-app" },
+      ],
+    },
     links: [
       { label: "Deskflow", href: "https://github.com/deskflow/deskflow" },
       { label: "Input Leap", href: "https://github.com/input-leap/input-leap" },

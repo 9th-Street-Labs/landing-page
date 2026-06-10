@@ -5,6 +5,7 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 import { Wordmark } from "@/components/ui/Wordmark";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
+import { Magnetic } from "@/components/ui/Magnetic";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -17,18 +18,16 @@ export function Navbar() {
   }, []);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled
-          ? "border-b border-line bg-background/80 backdrop-blur-md"
-          : "border-b border-transparent bg-transparent"
-      }`}
-    >
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Link href="/" aria-label={site.name}>
-          <Wordmark />
+    <header className="fixed inset-x-0 top-4 z-50 px-4">
+      <nav
+        className={`mx-auto flex h-14 max-w-5xl items-center justify-between gap-4 rounded-full border border-line-strong py-1 pr-2 pl-6 shadow-[0_12px_32px_-8px_var(--shadow-soft)] backdrop-blur-xl transition-colors duration-300 ${
+          scrolled ? "bg-surface-2/90" : "bg-surface-2/75"
+        }`}
+      >
+        <Link href="/" aria-label={site.name} className="shrink-0">
+          <Wordmark className="text-lg" />
         </Link>
-        <ul className="hidden items-center gap-8 text-sm sm:flex">
+        <ul className="hidden items-center gap-7 text-[15px] md:flex">
           {site.nav.map((item) => (
             <li key={item.href}>
               <Link
@@ -40,14 +39,16 @@ export function Navbar() {
             </li>
           ))}
         </ul>
-        <div className="flex items-center gap-3">
+        <div className="flex shrink-0 items-center gap-2">
           <ThemeToggle />
-          <Link
-            href="#download"
-            className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent-bright"
-          >
-            download
-          </Link>
+          <Magnetic>
+            <Link
+              href="#download"
+              className="flex h-10 items-center rounded-full bg-accent px-5 text-sm font-semibold text-white transition-colors hover:bg-accent-bright"
+            >
+              download
+            </Link>
+          </Magnetic>
         </div>
       </nav>
     </header>

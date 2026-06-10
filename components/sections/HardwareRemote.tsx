@@ -21,15 +21,20 @@ export function HardwareRemote() {
             <SectionHeading
               number="04"
               name="remote"
-              headline="whip (remote) — coming soon."
+              headline="==accent:whip (remote)== — coming soon."
               id="remote-heading"
             />
             <p className="mt-6 max-w-xl text-muted">
               A physical whip for when the phone is across the room. Dual
-              personality: standard BLE HID mouse — pairs with anything, zero
-              software — or companion mode for full mesh integration and
-              desktop-side tuning. Board is in bring-up. No renders, no
-              promises — this is the actual schematic.
+              personality: standard{" "}
+              <span className="text-foreground">BLE HID</span> mouse — pairs
+              with anything,{" "}
+              <span className="text-foreground">zero software</span> — or{" "}
+              <span className="text-foreground">companion mode</span> for full
+              mesh integration and desktop-side tuning. Board is in bring-up.{" "}
+              <span className="text-foreground">
+                No renders, no promises — this is the actual schematic.
+              </span>
             </p>
           </Reveal>
           <Reveal delay={0.1}>

@@ -1,6 +1,7 @@
 import { site } from "@/lib/site";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
+import { Highlight } from "@/components/ui/Highlight";
 import { Waveform } from "@/components/demos/Waveform";
 import { TypingDemo } from "@/components/demos/TypingDemo";
 import { TrackpadTrace } from "@/components/demos/TrackpadTrace";
@@ -24,7 +25,7 @@ export function Modes() {
         <SectionHeading
           number="02"
           name="modes"
-          headline="four ways to whip."
+          headline="four ways to ==accent:whip==."
           id="modes-heading"
         />
       </Reveal>
@@ -37,7 +38,7 @@ export function Modes() {
               delay={i * 0.08}
               className="min-w-[280px] snap-start sm:min-w-0"
             >
-              <article className="flex h-full flex-col gap-5 rounded-2xl border border-line bg-surface p-6 transition-colors hover:border-line-strong">
+              <article className="group flex h-full flex-col gap-5 rounded-2xl border border-line bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40">
                 <div className="rounded-xl bg-surface-2 py-3">
                   <Demo />
                 </div>
@@ -48,7 +49,7 @@ export function Modes() {
                   </span>
                 </h3>
                 <p className="flex-1 text-sm leading-relaxed text-muted">
-                  {mode.copy}
+                  <Highlight>{mode.copy}</Highlight>
                 </p>
                 <p className="font-mono text-xs text-faint">{mode.footnote}</p>
               </article>

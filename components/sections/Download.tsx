@@ -1,6 +1,7 @@
 import { site } from "@/lib/site";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
+import { Magnetic } from "@/components/ui/Magnetic";
 
 export function Download() {
   return (
@@ -22,9 +23,9 @@ export function Download() {
         <Reveal delay={0.1}>
           <div className="flex flex-wrap items-center justify-center gap-4">
             {site.downloads.desktop.map((item) => (
-              <Button key={item.label} href={item.href}>
-                {item.label}
-              </Button>
+              <Magnetic key={item.label}>
+                <Button href={item.href}>{item.label}</Button>
+              </Magnetic>
             ))}
           </div>
         </Reveal>
