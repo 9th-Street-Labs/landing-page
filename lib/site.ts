@@ -1,7 +1,7 @@
 // Central site configuration — edit copy, links, and metadata here.
 export const site = {
   name: "9th Street Labs",
-  shortName: "9St",
+  shortName: "9st",
   product: "whip",
   tagline: "the whip for your agents",
   description:
