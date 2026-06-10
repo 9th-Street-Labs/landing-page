@@ -11,7 +11,7 @@ export function Hero() {
       <DotGrid />
       <div className="pointer-events-none relative z-10 mx-auto flex w-full max-w-6xl flex-1 flex-col items-start justify-center gap-8 px-6 pt-32 pb-20">
         <p data-hero="eyebrow" className="font-mono text-sm text-faint">
-          9th street labs presents
+          9th Street Labs presents
         </p>
         <h1 className="max-w-4xl text-[clamp(2.75rem,6vw,5.5rem)] font-medium leading-[1.05] tracking-[-0.03em]">
           <span data-hero="title">
@@ -37,12 +37,12 @@ export function Hero() {
           className="pointer-events-auto flex flex-wrap items-center gap-4 pt-2"
         >
           <Magnetic>
-            <Button href="#download">crack the whip — download</Button>
+            <Button href="#download">Crack the Whip — Download</Button>
           </Magnetic>
           <Magnetic>
             <Button href="#remote" variant="ghost">
               <span className="animate-pulse-dot h-1.5 w-1.5 rounded-full bg-accent" />
-              whip (remote) — coming soon
+              Whip (remote) — coming soon
             </Button>
           </Magnetic>
         </div>

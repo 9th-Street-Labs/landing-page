@@ -14,12 +14,12 @@ export function Mesh() {
       <Reveal>
         <SectionHeading
           number="03"
-          name="mesh"
+          name="Mesh"
           headline="Agents on three machines. ==accent:One whip==."
           id="mesh-heading"
         />
         <p className="mt-6 max-w-2xl text-muted">
-          whip (desktop) is also a full software KVM across{" "}
+          Whip (desktop) is also a full software KVM across{" "}
           <span className="text-foreground">Windows, macOS and Linux</span>.
           Switch which desktop the phone drives in one tap, push your cursor
           across screen edges, sling files and clipboard between machines —
@@ -34,8 +34,8 @@ export function Mesh() {
         {site.mesh.features.map((feature, i) => (
           <Reveal key={feature.name} delay={i * 0.08}>
             <div className="rounded-2xl border border-line bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40">
-              <h3 className="font-semibold lowercase">
-                {feature.name}{" "}
+              <h3 className="font-semibold">
+                <span className="capitalize">{feature.name}</span>{" "}
                 <span className="font-normal text-faint">
                   ({feature.qualifier})
                 </span>

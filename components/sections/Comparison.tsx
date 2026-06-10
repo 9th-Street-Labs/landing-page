@@ -42,7 +42,7 @@ export function Comparison() {
         {/* whip */}
         <div className="flex flex-col gap-12 bg-accent p-8 sm:p-12">
           <h3 className="text-3xl font-medium tracking-tight text-white sm:text-4xl">
-            whip drives your agents.{" "}
+            Whip drives your agents.{" "}
             <span className="text-black/40">And everything else.</span>
           </h3>
           <div className="flex flex-1 flex-col justify-end gap-6">
@@ -70,7 +70,7 @@ export function Comparison() {
         </div>
       </div>
       <p className="mt-4 font-mono text-xs text-faint">
-        the others — all solid tools, just desktop-only:{" "}
+        The others — all solid tools, just desktop-only:{" "}
         {links.map((link, i) => (
           <span key={link.label}>
             <a

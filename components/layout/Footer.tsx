@@ -13,11 +13,11 @@ export function Footer() {
             <Wordmark variant="short" />
             <p className="max-w-xs text-sm text-muted">{site.tagline}.</p>
             <p className="font-mono text-xs text-faint">
-              made on the local network. no cloud was harmed.
+              Made on the local network. No cloud was harmed.
             </p>
           </div>
           <nav aria-label="Product" className="flex flex-col gap-3">
-            <p className="font-mono text-xs text-faint">product</p>
+            <p className="font-mono text-xs text-faint">Product</p>
             {site.nav.map((item) => (
               <Link
                 key={item.href}
@@ -31,18 +31,18 @@ export function Footer() {
               href="#download"
               className="text-sm text-muted transition-colors hover:text-foreground"
             >
-              download
+              Download
             </Link>
           </nav>
           <nav aria-label="Company" className="flex flex-col gap-3">
-            <p className="font-mono text-xs text-faint">company</p>
+            <p className="font-mono text-xs text-faint">Company</p>
             <Link
               href={site.social.github}
               target="_blank"
               rel="noreferrer"
               className="text-sm text-muted transition-colors hover:text-foreground"
             >
-              github
+              GitHub
             </Link>
             <Link
               href={`https://${site.domain}`}
@@ -62,16 +62,16 @@ export function Footer() {
         </div>
       </div>
 
-      {/* giant wordmark, gsap.com-style */}
+      {/* giant company wordmark, gsap.com-style — spans the full footer width */}
       <SplitReveal
         as="div"
-        className="pointer-events-none mx-auto max-w-6xl px-6 pb-4 text-center text-[clamp(3.5rem,13.5vw,12rem)] font-medium lowercase leading-none tracking-[-0.04em] whitespace-nowrap select-none"
+        className="pointer-events-none w-full pb-4 text-center text-[clamp(2.5rem,11vw,12rem)] font-medium leading-none tracking-[-0.04em] whitespace-nowrap select-none"
       >
         <span aria-hidden="true">
           <span className="text-accent">9</span>
           <span className="text-foreground">th </span>
-          <span className="text-accent">st</span>
-          <span className="text-foreground">reet</span>
+          <span className="text-accent">St</span>
+          <span className="text-foreground">reet Labs</span>
         </span>
       </SplitReveal>
     </footer>

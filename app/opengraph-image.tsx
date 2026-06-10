@@ -27,12 +27,12 @@ export default function OpengraphImage() {
             letterSpacing: "0.05em",
           }}
         >
-          9th street labs presents
+          9th Street Labs presents
         </div>
         <div
           style={{
             fontSize: 200,
-            fontWeight: 900,
+            fontWeight: 600,
             color: "#f5f5f5",
             letterSpacing: "-0.04em",
             lineHeight: 1,

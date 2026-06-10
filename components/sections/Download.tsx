@@ -16,7 +16,7 @@ export function Download() {
             id="download-heading"
             className="text-4xl font-medium tracking-tight sm:text-6xl"
           >
-            Crack the <span className="text-accent">whip</span>.
+            Crack the <span className="text-accent">Whip</span>.
           </h2>
           <p className="mt-4 text-lg text-muted">Your agents are waiting.</p>
         </Reveal>
@@ -41,7 +41,7 @@ export function Download() {
             ))}
           </div>
           <p className="mt-6 font-mono text-xs text-faint">
-            whip (remote) — coming soon
+            Whip (remote) — coming soon
           </p>
         </Reveal>
       </div>

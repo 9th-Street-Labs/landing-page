@@ -14,7 +14,7 @@ export function Specs() {
       <Reveal>
         <SectionHeading
           number="06"
-          name="specs"
+          name="Specs"
           headline="Under the hood."
           id="specs-heading"
         />
@@ -51,14 +51,14 @@ export function Specs() {
             ))}
           </ol>
           <div className="flex flex-col gap-4 rounded-2xl border border-line bg-surface p-6">
-            <p className="font-mono text-xs text-faint">trust model</p>
+            <p className="font-mono text-xs text-faint">Trust model</p>
             <ul className="flex flex-col gap-2 font-mono text-sm text-muted">
               {site.trust.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
             <p className="mt-2 border-t border-line pt-4 text-sm font-semibold text-accent">
-              no cloud relay — everything stays on your network.
+              No cloud relay — everything stays on your network.
             </p>
           </div>
         </div>

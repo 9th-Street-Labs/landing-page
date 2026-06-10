@@ -1,4 +1,4 @@
-// Brand wordmark. "9" and "st" carry the accent, per the brand guide.
+// Brand wordmark: "Whip" carries the accent, per the brand guide.
 export function Wordmark({
   variant = "full",
   className = "text-lg",
@@ -6,22 +6,11 @@ export function Wordmark({
   variant?: "full" | "short";
   className?: string;
 }) {
-  if (variant === "short") {
-    return (
-      <span className={`font-semibold lowercase tracking-tight ${className}`}>
-        <span className="text-accent">9</span>
-        <span className="text-foreground">st.ai</span>
-      </span>
-    );
-  }
+  void variant; // both variants render the product brand
   return (
-    <span
-      className={`whitespace-nowrap font-semibold lowercase tracking-tight ${className}`}
-    >
-      <span className="text-accent">9</span>
-      <span className="text-foreground">th </span>
-      <span className="text-accent">st</span>
-      <span className="text-foreground">reet labs</span>
+    <span className={`whitespace-nowrap font-semibold tracking-tight ${className}`}>
+      <span className="text-foreground">9st</span>
+      <span className="text-accent"> Whip</span>
     </span>
   );
 }

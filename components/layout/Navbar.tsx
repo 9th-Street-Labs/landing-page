@@ -46,7 +46,7 @@ export function Navbar() {
               href="#download"
               className="flex h-10 items-center rounded-full bg-accent px-5 text-sm font-semibold text-white transition-colors hover:bg-accent-bright"
             >
-              download
+              Download
             </Link>
           </Magnetic>
         </div>

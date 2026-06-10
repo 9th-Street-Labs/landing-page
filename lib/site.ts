@@ -2,18 +2,18 @@
 export const site = {
   name: "9th Street Labs",
   shortName: "9st",
-  product: "whip",
-  tagline: "the whip for your agents",
+  product: "Whip",
+  tagline: "The Whip for your agents",
   description:
-    "whip by 9th Street Labs — the whip for your AI agents. They code on your desktops; you drive them from your phone. Point, type, talk — never babysit a terminal again.",
+    "Whip by 9th Street Labs — the whip for your AI agents. They code on your desktops; you drive them from your phone. Point, type, talk — never babysit a terminal again.",
   url: "https://9thstreetlabs.com",
   domain: "9st.ai",
   nav: [
-    { label: "point", href: "#point" },
-    { label: "modes", href: "#modes" },
-    { label: "mesh", href: "#mesh" },
-    { label: "remote", href: "#remote" },
-    { label: "specs", href: "#specs" },
+    { label: "Point", href: "#point" },
+    { label: "Modes", href: "#modes" },
+    { label: "Mesh", href: "#mesh" },
+    { label: "Remote", href: "#remote" },
+    { label: "Specs", href: "#specs" },
   ],
   social: {
     github: "https://github.com/9th-Street-Labs",
@@ -21,13 +21,13 @@ export const site = {
   // Placeholder hrefs — swap when public builds / store listings ship.
   downloads: {
     desktop: [
-      { label: "windows (.exe)", href: "#" },
-      { label: "macos (.dmg)", href: "#" },
-      { label: "linux (.AppImage / .deb)", href: "#" },
+      { label: "Windows (.exe)", href: "#" },
+      { label: "macOS (.dmg)", href: "#" },
+      { label: "Linux (.AppImage / .deb)", href: "#" },
     ],
     stores: [
-      { label: "app store — soon" },
-      { label: "google play — soon" },
+      { label: "App Store — soon" },
+      { label: "Google Play — soon" },
     ],
   },
   ticker: [
@@ -40,25 +40,25 @@ export const site = {
   modes: [
     {
       name: "voice",
-      qualifier: "push-to-talk",
+      qualifier: "Push-to-talk",
       copy: "Dictate the next prompt from the kitchen. Hold to talk — speech streams to ==white:Deepgram Flux== and types into your agent's terminal.",
       footnote: "11 languages · API key never touches your phone",
     },
     {
       name: "keyboard",
-      qualifier: "layout-free",
+      qualifier: "Layout-free",
       copy: "Your agent asked a question. Reply from your pocket — text ==white:diff-syncs== to the desktop, ==white:no layout problems, ever==.",
       footnote: "esc · tab · arrows · enter included",
     },
     {
       name: "trackpad",
-      qualifier: "touch-relative",
+      qualifier: "Touch-relative",
       copy: "Precision when you need it. Touch-relative surface with ==white:click zones== and a scroll strip — scrub the diff, hit the button.",
       footnote: "two-finger scroll · tap-click",
     },
     {
       name: "remote",
-      qualifier: "presenter + media",
+      qualifier: "Presenter + media",
       copy: "Slides and media keys too. Advance the deck, blank the screen, skip the track — ==white:same phone, same mesh==.",
       footnote: "prev / next · F5 · play · volume",
     },
@@ -67,12 +67,12 @@ export const site = {
     features: [
       {
         name: "clipboard",
-        qualifier: "synced",
+        qualifier: "Synced",
         copy: "Text and images ==white:follow your cursor== across machines.",
       },
       {
         name: "files",
-        qualifier: "drag-drop",
+        qualifier: "Drag-drop",
         copy: "Sling files between desktops over TLS, ==white:hash-verified==.",
       },
       {
@@ -98,29 +98,29 @@ export const site = {
   ],
   connectivity: [
     {
-      name: "webrtc datachannel",
-      qualifier: "primary",
+      name: "WebRTC DataChannel",
+      qualifier: "Primary",
       copy: "Unreliable, unordered, ==white:low-latency== — built for input events.",
     },
     {
-      name: "websocket",
-      qualifier: "floor",
+      name: "WebSocket",
+      qualifier: "Floor",
       copy: "==white:Always-works== fallback on any network that passes TCP.",
     },
     {
-      name: "ble gatt",
-      qualifier: "no shared wi-fi? still works",
+      name: "BLE GATT",
+      qualifier: "No shared Wi-Fi? Still works",
       copy: "Direct radio lane between phone and desktop. ==white:No router required==.",
     },
   ],
   trust: [
     "mDNS discovery",
     "QR pairing",
-    "fingerprint-pinned TLS",
+    "Fingerprint-pinned TLS",
   ],
   comparison: {
     others: {
-      name: "desktop-only KVMs",
+      name: "Desktop-only KVMs",
       headline: "The others just move your mouse.",
       rows: [
         { value: "yes", unit: "", label: "keyboard + mouse mesh" },
@@ -132,7 +132,7 @@ export const site = {
       ],
     },
     whip: {
-      name: "whip",
+      name: "Whip",
       rows: [
         { value: "<3", unit: "ms p95", label: "keyboard + mouse mesh" },
         { value: "first", unit: "class", label: "phone as input" },

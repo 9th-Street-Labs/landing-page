@@ -16,12 +16,12 @@ export function HardwareRemote() {
           <Reveal>
             <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/40 px-3 py-1 font-mono text-xs text-accent">
               <span className="animate-pulse-dot h-1.5 w-1.5 rounded-full bg-accent" />
-              in bring-up
+              In bring-up
             </span>
             <SectionHeading
               number="04"
-              name="remote"
-              headline="==accent:whip (remote)== — coming soon."
+              name="Remote"
+              headline="==accent:Whip (remote)== — coming soon."
               id="remote-heading"
             />
             <p className="mt-6 max-w-xl text-muted">

@@ -12,7 +12,7 @@ export function Point() {
       <Reveal>
         <SectionHeading
           number="01"
-          name="point"
+          name="Point"
           headline="Your agent asked a question. Answer it from the ==accent:couch==."
           id="point-heading"
         />

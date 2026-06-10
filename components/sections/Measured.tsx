@@ -14,12 +14,12 @@ export function Measured() {
         <Reveal>
           <SectionHeading
             number="05"
-            name="measured"
+            name="Measured"
             headline="Performance is ==accent:measured==, not promised."
             id="measured-heading"
           />
           <p className="mt-6 max-w-2xl text-muted">
-            whip ships with{" "}
+            Whip ships with{" "}
             <span className="text-foreground">
               clock-synced one-way latency instrumentation
             </span>
