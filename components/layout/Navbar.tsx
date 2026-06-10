@@ -34,14 +34,14 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-4 z-50 px-4">
       <nav
-        className={`mx-auto flex h-14 max-w-5xl items-center justify-between gap-4 rounded-full border border-line-strong py-1 pr-2 pl-6 shadow-[0_12px_32px_-8px_var(--shadow-soft)] backdrop-blur-xl transition-colors duration-300 ${
+        className={`mx-auto grid h-14 max-w-5xl grid-cols-[1fr_auto_1fr] items-center gap-4 rounded-full border border-line-strong py-1 pr-2 pl-6 shadow-[0_12px_32px_-8px_var(--shadow-soft)] backdrop-blur-xl transition-colors duration-300 ${
           scrolled ? "bg-surface-2/90" : "bg-surface-2/75"
         }`}
       >
-        <Link href="/" aria-label={site.name} className="shrink-0">
+        <Link href="/" aria-label={site.name} className="shrink-0 justify-self-start">
           <Wordmark className="text-lg" />
         </Link>
-        <ul className="hidden items-center gap-7 text-[15px] md:flex">
+        <ul className="hidden items-center gap-7 text-[15px] md:flex justify-self-center">
           {site.nav.map((item) => (
             <li key={item.href}>
               <Link
@@ -53,7 +53,7 @@ export function Navbar() {
             </li>
           ))}
         </ul>
-        <div className="flex shrink-0 items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2 justify-self-end">
           <ThemeToggle />
           <Link
             href={signedIn ? "/dashboard" : "/login"}
