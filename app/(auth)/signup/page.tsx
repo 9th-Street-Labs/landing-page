@@ -1,13 +1,7 @@
-import { Suspense } from "react";
-import type { Metadata } from "next";
-import { AuthForm } from "@/components/auth/AuthForm";
+import { redirect } from "next/navigation";
 
-export const metadata: Metadata = { title: "Sign up — 9st Whip" };
-
+// Auth is passwordless (email OTP + Google/Apple) — sign-up and sign-in are the
+// same flow, so /signup just sends users to the unified entry point.
 export default function SignupPage() {
-  return (
-    <Suspense>
-      <AuthForm mode="signup" />
-    </Suspense>
-  );
+  redirect("/login");
 }
