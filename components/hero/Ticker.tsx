@@ -1,4 +1,5 @@
 import { site } from "@/lib/site";
+import { TickerTrack } from "@/components/hero/TickerTrack";
 
 export function Ticker() {
   const items = [...site.ticker, ...site.ticker];
@@ -7,7 +8,7 @@ export function Ticker() {
       className="w-full overflow-hidden border-y border-line py-3"
       aria-label={site.ticker.join(", ")}
     >
-      <div className="animate-marquee flex w-max gap-0" aria-hidden="true">
+      <TickerTrack>
         {items.map((item, i) => (
           <span
             key={i}
@@ -17,7 +18,7 @@ export function Ticker() {
             <span className="pl-16 text-accent">·</span>
           </span>
         ))}
-      </div>
+      </TickerTrack>
     </div>
   );
 }

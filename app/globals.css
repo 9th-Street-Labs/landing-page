@@ -23,6 +23,7 @@
   --cursor: #f5f5f5;
   --schematic: rgba(255, 255, 255, 0.4);
   --scrollbar-thumb: #333333;
+  --shadow-soft: rgba(0, 0, 0, 0.35);
 }
 
 [data-theme="light"] {
@@ -44,6 +45,7 @@
   --cursor: #0f0d0c;
   --schematic: rgba(0, 0, 0, 0.42);
   --scrollbar-thumb: #c9c6c1;
+  --shadow-soft: rgba(0, 0, 0, 0.08);
 }
 
 @theme inline {
@@ -79,12 +81,16 @@ body {
 }
 
 html {
-  scroll-behavior: smooth;
   scrollbar-color: var(--scrollbar-thumb) transparent;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
+/* Lenis owns smooth scrolling when JS + full motion are available; CSS
+   smooth scroll would fight it, so it only applies as the no-JS fallback. */
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.lenis) {
+    scroll-behavior: smooth;
+  }
+  html.lenis {
     scroll-behavior: auto;
   }
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Geist_Mono } from "next/font/google";
 import { site } from "@/lib/site";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import "./globals.css";
 
 const inter = Inter({
@@ -52,7 +53,10 @@ export default function RootLayout({
         className="min-h-full flex flex-col bg-background text-foreground"
         suppressHydrationWarning
       >
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <SmoothScroll />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
