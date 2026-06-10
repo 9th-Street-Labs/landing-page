@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "motion/react";
+import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
 
 // Node positions in a 800x420 viewBox.
 const NODES = {
@@ -27,10 +27,101 @@ function edgePath(a: keyof typeof NODES, b: keyof typeof NODES) {
 
 export function MeshDiagram() {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: false, margin: "-80px" });
+
+  useGSAP(
+    () => {
+      const root = ref.current;
+      if (!root) return;
+      const mm = gsap.matchMedia();
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        const edges = gsap.utils.toArray<SVGElement>(".mesh-edge", root);
+        const nodes = gsap.utils.toArray<SVGElement>(".mesh-node", root);
+        const packets = gsap.utils.toArray<SVGElement>(".mesh-packet", root);
+        const cursor = root.querySelector<SVGElement>(".mesh-cursor");
+
+        // Build phase: edges draw + nodes pop, scrubbed to scroll.
+        const build = gsap.timeline({
+          scrollTrigger: {
+            trigger: root,
+            start: "clamp(top 80%)",
+            end: "top 35%",
+            scrub: 0.5,
+          },
+        });
+        build
+          .from(nodes, {
+            scale: 0.9,
+            autoAlpha: 0,
+            transformOrigin: "center center",
+            stagger: 0.12,
+            duration: 0.5,
+            ease: "power2.out",
+          })
+          .from(
+            edges,
+            { drawSVG: 0, stagger: 0.1, duration: 0.6, ease: "none" },
+            "<0.1"
+          );
+
+        // Live phase: packets travel edges, cursor hops between screens.
+        // Loops run only while the diagram is on screen.
+        const loops: gsap.core.Tween[] = [];
+        packets.forEach((packet, i) => {
+          loops.push(
+            gsap.to(packet, {
+              motionPath: { path: edgePath(...EDGES[i % EDGES.length]) },
+              duration: 2.2 + i * 0.5,
+              repeat: -1,
+              ease: "none",
+              paused: true,
+            })
+          );
+        });
+        if (cursor) {
+          const waypoints = [NODES.left, NODES.mid, NODES.right, NODES.left];
+          loops.push(
+            gsap.to(cursor, {
+              motionPath: {
+                path: waypoints.map((n) => ({ x: n.x, y: n.y })),
+              },
+              duration: 7,
+              repeat: -1,
+              ease: "power1.inOut",
+              paused: true,
+            })
+          );
+          gsap.set(cursor, { x: NODES.left.x, y: NODES.left.y });
+        }
+        gsap.set(packets, { autoAlpha: 0 });
+
+        const live = ScrollTrigger.create({
+          trigger: root,
+          start: "clamp(top 80%)",
+          end: "bottom top",
+          onToggle: (self) => {
+            if (self.isActive) {
+              gsap.to(packets, { autoAlpha: 1, duration: 0.4, delay: 0.3 });
+              loops.forEach((l) => l.play());
+            } else {
+              loops.forEach((l) => l.pause());
+            }
+          },
+        });
+
+        return () => {
+          live.kill();
+          loops.forEach((l) => l.kill());
+        };
+      });
+    },
+    { scope: ref }
+  );
 
   return (
-    <div ref={ref} className="rounded-2xl border border-line bg-surface p-4 sm:p-8">
+    <div
+      ref={ref}
+      className="rounded-2xl border border-line bg-surface p-4 sm:p-8"
+    >
       <svg
         viewBox="0 0 800 420"
         className="w-full"
@@ -42,29 +133,26 @@ export function MeshDiagram() {
           <path
             key={`${a}-${b}`}
             d={edgePath(a, b)}
-            className="stroke-line"
+            className="mesh-edge stroke-line"
             strokeWidth="1.5"
             fill="none"
           />
         ))}
 
         {/* traveling packets */}
-        {inView &&
-          EDGES.map(([a, b], i) => (
-            <circle key={`p-${a}-${b}`} r="4" className="fill-accent">
-              <animateMotion
-                dur={`${2.2 + i * 0.5}s`}
-                repeatCount="indefinite"
-                path={edgePath(a, b)}
-              />
-            </circle>
-          ))}
+        {EDGES.map(([a, b]) => (
+          <circle
+            key={`p-${a}-${b}`}
+            r="4"
+            className="mesh-packet fill-accent opacity-0"
+          />
+        ))}
 
         {/* desktop nodes */}
         {(["left", "mid", "right"] as const).map((key) => {
           const n = NODES[key];
           return (
-            <g key={key}>
+            <g key={key} className="mesh-node">
               <rect
                 x={n.x - n.w / 2}
                 y={n.y - n.h / 2}
@@ -108,30 +196,19 @@ export function MeshDiagram() {
         })}
 
         {/* cursor crossing between screens */}
-        {inView && (
-          <motion.g
-            initial={false}
-            animate={{
-              x: [NODES.left.x, NODES.mid.x, NODES.right.x, NODES.left.x],
-              y: [NODES.left.y, NODES.mid.y, NODES.right.y, NODES.left.y],
-            }}
-            transition={{
-              duration: 7,
-              times: [0, 0.4, 0.75, 1],
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-            <path
-              d="M0 -6 L0 8 L4 4.5 L7 11 L9.5 10 L6.5 3.5 L12 3 Z"
-              className="fill-cursor stroke-background"
-              strokeWidth="1"
-            />
-          </motion.g>
-        )}
+        <g
+          className="mesh-cursor"
+          transform={`translate(${NODES.left.x}, ${NODES.left.y})`}
+        >
+          <path
+            d="M0 -6 L0 8 L4 4.5 L7 11 L9.5 10 L6.5 3.5 L12 3 Z"
+            className="fill-cursor stroke-background"
+            strokeWidth="1"
+          />
+        </g>
 
         {/* phone node */}
-        <g>
+        <g className="mesh-node">
           <rect
             x={NODES.phone.x - NODES.phone.w / 2}
             y={NODES.phone.y - NODES.phone.h / 2}
