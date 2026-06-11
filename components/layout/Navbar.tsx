@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { site } from "@/lib/site";
 import { Wordmark } from "@/components/ui/Wordmark";
-import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { Magnetic } from "@/components/ui/Magnetic";
 import { createClient } from "@/lib/supabase/client";
 
@@ -32,7 +31,9 @@ export function Navbar() {
   }, []);
 
   return (
-    <header className="fixed inset-x-0 top-4 z-50 px-4">
+    // Pinned dark: the floating pill stays dark over both light and dark
+    // bands (the theme toggle lives in the dashboard, not here).
+    <header data-theme="dark" className="fixed inset-x-0 top-4 z-50 px-4">
       <nav
         className={`mx-auto grid h-14 max-w-5xl grid-cols-[1fr_auto_1fr] items-center gap-4 rounded-full border border-line-strong py-1 pr-2 pl-6 shadow-[0_12px_32px_-8px_var(--shadow-soft)] backdrop-blur-xl transition-colors duration-300 ${
           scrolled ? "bg-surface-2/90" : "bg-surface-2/75"
@@ -54,7 +55,6 @@ export function Navbar() {
           ))}
         </ul>
         <div className="flex shrink-0 items-center gap-2 justify-self-end">
-          <ThemeToggle />
           <Link
             href={signedIn ? "/dashboard" : "/login"}
             className="hidden h-10 items-center rounded-full px-4 text-sm text-muted transition-colors hover:text-foreground sm:flex"

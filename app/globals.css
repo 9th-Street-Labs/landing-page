@@ -2,8 +2,13 @@
 
 /* Dark is the default (brand-first, and the no-JS fallback). The anti-FOUC
    script in the layout sets data-theme to the resolved preference before paint;
-   [data-theme="light"] below overrides the tokens. */
-:root {
+   [data-theme="light"] below overrides the tokens.
+
+   data-theme also works on any element, not just <html>: the marketing page
+   pins fixed dark/light bands per section (superheat.xyz-style) regardless of
+   the visitor's theme, while the dashboard keeps the global toggle. */
+:root,
+[data-theme="dark"] {
   --background: #000000;
   --foreground: #f5f5f5;
   --accent: #ff3d00;

@@ -25,12 +25,11 @@ export function DotGrid() {
     const pointer = { x: -9999, y: -9999 };
 
     // Canvas can't read CSS vars at paint time — pull the idle dot color from
-    // the resolved theme and re-read it whenever data-theme flips.
+    // the resolved theme and re-read it whenever data-theme flips. Read it
+    // off the canvas, not <html>: the hero band pins its own data-theme.
     let idleColor = "rgba(255, 255, 255, 0.08)";
     const readTheme = () => {
-      const v = getComputedStyle(document.documentElement)
-        .getPropertyValue("--dot-idle")
-        .trim();
+      const v = getComputedStyle(canvas).getPropertyValue("--dot-idle").trim();
       if (v) idleColor = v;
     };
     readTheme();

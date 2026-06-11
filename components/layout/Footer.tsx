@@ -5,7 +5,10 @@ import { SplitReveal } from "@/components/ui/SplitReveal";
 
 export function Footer() {
   return (
-    <footer className="mt-auto overflow-hidden border-t border-line">
+    <footer
+      data-theme="dark"
+      className="mt-auto overflow-hidden border-t border-line bg-background text-foreground"
+    >
       <div className="mx-auto max-w-6xl px-6 pt-16">
         {/* link columns */}
         <div className="grid gap-12 pb-16 sm:grid-cols-[1fr_auto_auto] sm:gap-20">
