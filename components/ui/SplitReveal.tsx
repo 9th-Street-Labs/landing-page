@@ -12,11 +12,19 @@ export function SplitReveal({
   as = "h2",
   id,
   className,
+  start = "clamp(top 80%)",
   children,
 }: {
   as?: "h1" | "h2" | "h3" | "p" | "div";
   id?: string;
   className?: string;
+  /**
+   * ScrollTrigger start. Elements at the very bottom of the page should pass
+   * "clamp(top bottom)": clamp() pins an unreachable "top 80%" to exactly
+   * maxScroll, which fractional page heights can leave the scroll a hair
+   * short of — so the reveal never fires.
+   */
+  start?: string;
   children: ReactNode;
 }) {
   const ref = useRef<HTMLElement>(null);
@@ -45,8 +53,7 @@ export function SplitReveal({
                 ease: "expo.out",
                 scrollTrigger: {
                   trigger: el,
-                  // clamp() so elements near the page edges still fire
-                  start: "clamp(top 80%)",
+                  start,
                   once: true,
                 },
               });

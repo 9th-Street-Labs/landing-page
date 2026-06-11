@@ -65,6 +65,7 @@ export function Footer() {
       {/* giant company wordmark, gsap.com-style — spans the full footer width */}
       <SplitReveal
         as="div"
+        start="clamp(top bottom)"
         className="pointer-events-none w-full pb-4 text-center text-[clamp(2.5rem,11vw,12rem)] font-medium leading-none tracking-[-0.04em] whitespace-nowrap select-none"
       >
         <span aria-hidden="true">
